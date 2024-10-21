@@ -36,7 +36,7 @@ class ReviewController extends Controller
     {
         $reviews = Review::orderBy('created_at', 'DESC')->get();
 
-        return view('reviews.index', compact('reviews'));
+        return view('reviews/index', compact('reviews'));
     }
 
     public function create()
@@ -47,9 +47,9 @@ class ReviewController extends Controller
     public function destroy(string $id)
     {
         $review = Review::findOrFail($id);
- 
+
         $review->delete();
- 
+
         return redirect()->route('admin/reviews')->with('success', 'review deleted successfully');
     }
 }

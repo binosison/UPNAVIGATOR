@@ -5,7 +5,7 @@
 @section('contents')
 <div>
     <h1 class="font-bold text-2xl ml-3">Office List</h1>
-    <a href="{{ route('admin/departments/create') }}" class="text-white float-right bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 focus:outline-none dark:focus:ring-green-800">Add Dept</a>
+    <a href="{{ route('admin/departments/create') }}" class="text-white float-right bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 focus:outline-none dark:focus:ring-green-800">Add Office</a>
     <hr />
     @if(Session::has('success'))
     <div class="p-4 mb-4 text-sm text-green-800 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400" role="alert">
@@ -36,7 +36,7 @@
                     <img src="{{ $item->photo }}" width="100px">
                 </td>
                 <td>{{ $item->description }}</td>
-                
+
                <!--Map link-->
                 <td>
                     @if($item->location)
@@ -48,8 +48,8 @@
                 <!--Map link-->
 
                 <td class="flex items-center px-6 py-4 space-x-3">
-                    <a href="{{ route('admin/departments/show', $item->id) }}" class="text-blue-800">Detail </a>  
-                    <a href="{{ route('admin/departments/edit', $item->id)}}" class="text-green-800 pl-2">Edit </a>  
+                    <a href="{{ route('admin/departments/show', $item->id) }}" class="text-blue-800">Detail </a>
+                    <a href="{{ route('admin/departments/edit', $item->id)}}" class="text-green-800 pl-2">Edit </a>
                     <form action="{{ route('admin/departments/destroy', $item->id) }}" method="POST" onsubmit="return confirm('Delete?')" class="float-right text-red-900">
                         @csrf
                         @method('DELETE')
