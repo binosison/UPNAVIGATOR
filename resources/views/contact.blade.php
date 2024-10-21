@@ -26,22 +26,22 @@
           </div>
           @endif
 
-          <form action="{{ route('contact.submit') }}" method="POST">
+          <form action="{{ route('contact.submit') }}" method="POST" id="contactForm">
             @csrf
             <div class="row gy-4 gy-xl-5 p-4 p-xl-5">
               <div class="col-12">
-                <label for="fullname" class="form-label">Full Name <span class="text-danger">*</span></label>
-                <input type="text" class="form-control" id="fullname" name="fullname" required>
+                <label for="fullname" class="form-label">Full Name @if(!auth()->check())<span class="text-muted">(optional)</span>@endif</label>
+                <input type="text" class="form-control" id="fullname" name="fullname" @if(!auth()->check()) required="false" @endif>
               </div>
-              <div class="col-12 ">
-                <label for="email" class="form-label">Email <span class="text-danger">*</span></label>
+              <div class="col-12">
+                <label for="email" class="form-label">Email @if(!auth()->check())<span class="text-muted">(optional)</span>@endif</label>
                 <div class="input-group">
                   <span class="input-group-text">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-envelope" viewBox="0 0 16 16">
                       <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z" />
                     </svg>
                   </span>
-                  <input type="email" class="form-control" id="email" name="email" required>
+                  <input type="email" class="form-control" id="email" name="email" @if(!auth()->check()) required="false" @endif>
                 </div>
               </div>
               <div class="col-12">
@@ -49,17 +49,27 @@
                 <textarea class="form-control" id="message" name="message" rows="3" required></textarea>
               </div>
               <div class="col-12">
-
-              <button type="submit" class="w-full py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white
-               bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500" type="submit">
-               Submit </button>
+                <button type="submit" class="w-full py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white
+                 bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500">
+                 Submit
+                </button>
               </div>
             </div>
           </form>
-
         </div>
       </div>
     </div>
   </div>
 </section>
+
+<script>
+    // Check if the user is logged in
+    const isLoggedIn = @json(auth()->check());
+
+    // If the user is not logged in, remove the required attribute from fullname and email fields
+    if (!isLoggedIn) {
+        document.getElementById('fullname').removeAttribute('required');
+        document.getElementById('email').removeAttribute('required');
+    }
+</script>
 @endsection

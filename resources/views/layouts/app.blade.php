@@ -108,7 +108,7 @@
                 <a href="{{ route('admin/contacts') }}">
                     <div class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-green-600 text-white">
                         <i class="bi bi-chat-fill"></i>
-                        <span class="text-[15px] ml-4 text-gray-200 font-bold">Queries</span>
+                        <span class="text-[15px] ml-4 text-gray-200 font-bold">Suggestions</span>
                     </div>
                 </a>
                 <!--<a href="{{ route('admin/reviews')}}">
@@ -121,7 +121,7 @@
                 <a href="{{ route('admin/facilities')}}">
                     <div class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-green-600 text-white">
                         <i class="bi bi-star-fill"></i>
-                        <span class="text-[15px] ml-4 text-gray-200 font-bold">Gsd</span>
+                        <span class="text-[15px] ml-4 text-gray-200 font-bold">GSD</span>
                     </div>
                 </a>
 

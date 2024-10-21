@@ -4,7 +4,7 @@
 
 @section('contents')
 <div class="container mx-auto">
-    <h1 class="font-bold text-2xl ml-3">User Queries</h1>
+    <h1 class="font-bold text-2xl ml-3">User Suggestions</h1>
     <hr />
 
     <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
@@ -13,7 +13,7 @@
                 <th scope="col" class="px-6 py-3">#</th>
                 <th scope="col" class="px-6 py-3">Fullname</th>
                 <th scope="col" class="px-6 py-3">Email</th>
-                <th scope="col" class="px-6 py-3">Queries</th>
+                <th scope="col" class="px-6 py-3">Suggestions</th>
                 <th scope="col" class="px-6 py-3">Date</th>
                 <th scope="col" class="px-6 py-3">Actions</th>
             </tr>
@@ -40,7 +40,7 @@
         @endforeach
         @else
         <tr>
-            <td colspan="6" class="text-center">No queries found</td>
+            <td colspan="6" class="text-center">No suggestion found</td>
         </tr>
         @endif
         </tbody>
